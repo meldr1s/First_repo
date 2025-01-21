@@ -15,10 +15,13 @@ payment = (rate * value_day) + ((rate / 2) *value_night)
 first_name = "Vlad"
 last_name = "P"
 full_name = f"{first_name} {last_name}"
-print(full_name)
+# print(full_name)
 
 
 length = 2.75
 width = 1.75
-area =
-show = f""
+area = length * width
+show = f"With width {width} and length {length} of the room, its area is equal to {area:.2f}"
+# print(show)
+
+
