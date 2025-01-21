@@ -16,3 +16,9 @@ first_name = "Vlad"
 last_name = "P"
 full_name = f"{first_name} {last_name}"
 print(full_name)
+
+
+length = 2.75
+width = 1.75
+area =
+show = f""
