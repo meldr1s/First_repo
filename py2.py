@@ -93,10 +93,63 @@
 # print(invite)
 
 
-def discount_price(price, discount):
-    def apply_discount():
-        
-        
+# price = 100
+# discount = 0.1
 
-    
-    return price
+# def discount_price(price, discount):
+#     def apply_discount(discount):
+#         nonlocal price 
+#         price = price * (1 - discount)
+#         print(price)
+#         return price
+#     apply_discount(discount)
+#     return price
+# discount_price(price, discount)
+# print(price)
+
+
+# first_name = "V"
+# last_name = "P"
+# middle_name = ""
+# def get_fullname(first_name, last_name, middle_name=""):
+#     if middle_name:
+#         return f"Ваше імя {first_name} {middle_name} {last_name}."
+#     else:
+#         return f"Ваше імя {first_name} {last_name}."
+# fullname = get_fullname(first_name, last_name, middle_name)
+# print(fullname)
+
+
+# string = "123   "
+# length = 20
+# def format_string(string, length):
+#     if len(string) >= length:
+#         return string
+#     else:
+#         strlen = " " * ((length - len(string)) // 2)
+#         return strlen + string
+# newstring = format_string(string, length)
+# print(newstring)
+
+
+# def first(size, *args):
+#     return size + len(args)
+
+# def second(size, **kwargs):
+#     return size + len(kwargs)
+
+# print(first(5, "first", "second", "third"))
+# print(first(1, "Alex", "Boris"))
+# print(second(3, comment_one="first", comment_two="second", comment_third="third"))
+# print(second(10, comment_one="Alex", comment_two="Boris"))
+
+
+def factorial(n):
+    if n < 2:
+        return 1
+    else:
+        return n * factorial(n - 1)
+
+
+def number_of_groups(n, k):
+    return factorial(n) // (factorial(n - k) * factorial(k))
