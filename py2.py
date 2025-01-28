@@ -144,12 +144,11 @@
 # print(second(10, comment_one="Alex", comment_two="Boris"))
 
 
-def factorial(n):
-    if n < 2:
-        return 1
-    else:
-        return n * factorial(n - 1)
+# def factorial(n):
+#     if n < 2:
+#         return 1
+#     else:
+#         return n * factorial(n - 1)
 
-
-def number_of_groups(n, k):
-    return factorial(n) // (factorial(n - k) * factorial(k))
+# def number_of_groups(n, k):
+#     return factorial(n) // (factorial(n - k) * factorial(k))
