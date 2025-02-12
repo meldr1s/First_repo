@@ -42,15 +42,13 @@ phone_number = [
 def normalize_phone(phone_numbers):
     n_numbers = []
     for phone in phone_numbers:
-        phone = re.sub(r"[^\d+]", "", phone)        
-        if phone.startswith('+'):
-            if phone[1:4] == '380':
-                n_numbers.append(phone)
-            else:
-                n_numbers.append("+38" + phone[1:])
+        phone = re.sub(r"[^\d]", "", phone)
+        if phone.startswith("380"):
+            n_numbers.append("+" + phone)
         else:
-            n_numbers.append("+38" + phone)
+            n_numbers.append("+380" + phone.lstrip("0"))
     return n_numbers
+
 true_n = normalize_phone(phone_number)
 
 for number in true_n:
