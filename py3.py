@@ -257,3 +257,158 @@
 # print(get_upcoming_birthdays(users))
 
 
+# from datetime import datetime
+
+# users = [
+#     {"name": "Bill Gates", "birthday": "1955.3.25"},
+#     {"name": "Steve Jobs", "birthday": "1955.3.21"},
+#     {"name": "Jinny Lee", "birthday": "1956.3.22"},
+#     {"name": "John Doe", "birthday": "1985.01.23"},
+#     {"name": "Jane Smith", "birthday": "1990.01.27"}
+# ]
+
+# def string_to_date(date_string):
+#     return datetime.strptime(date_string, "%Y.%m.%d").date()
+
+# def prepare_user_list(user_data):
+#     return [{"name": user["name"], "birthday": string_to_date(user["birthday"])} for user in user_data]
+
+# prepared_users = prepare_user_list(users)
+# print(prepared_users)
+
+
+# from datetime import datetime, timedelta
+
+# start_date = datetime.now()
+# weekday = 4
+
+# def string_to_date(date_string):
+#     return datetime.strptime(date_string, "%Y.%m.%d").date()
+
+# def find_next_weekday(start_date, weekday):
+#     days_ahead = (weekday - start_date.weekday()) % 7
+#     days_ahead = days_ahead if days_ahead else 7
+#     return start_date + timedelta(days=days_ahead)
+
+# print(find_next_weekday(start_date, weekday))
+
+
+# from datetime import datetime, date, timedelta
+
+# def string_to_date(date_string):
+#     return datetime.strptime(date_string, "%Y.%m.%d").date()
+
+# def date_to_string(date):
+#     return date.strftime("%Y.%m.%d")
+
+# def prepare_user_list(user_data):
+#     prepared_list = []
+#     for user in user_data:
+#         prepared_list.append({"name": user["name"], "birthday": string_to_date(user["birthday"])})
+#     return prepared_list
+
+# def get_upcoming_birthdays(users, days=7):
+#     upcoming_birthdays = []
+#     today = date.today()
+#     end_date = today + timedelta(days=days)
+#     for user in users:
+#         birthday_this_year = user["birthday"].replace(year=today.year)
+#         if today <= birthday_this_year <= end_date:
+#             upcoming_birthdays.append({
+#                 "name": user["name"],
+#                 "congratulation_date": date_to_string(birthday_this_year)
+#             })
+#     return upcoming_birthdays
+
+# users = [
+#     {"name": "Sarah Lee", "birthday": "1957.03.30"},
+#     {"name": "John Doe", "birthday": "1985.03.28"},
+#     {"name": "Jane Smith", "birthday": "1990.03.27"},
+#     {"name": "John Doe", "birthday": "1985.01.23"},
+# ]
+
+# print(get_upcoming_birthdays(prepare_user_list(users), 7))
+
+
+# from datetime import datetime, timedelta
+
+
+# def string_to_date(date_string):
+#     return datetime.strptime(date_string, "%Y.%m.%d").date()
+
+
+# def find_next_weekday(start_date, weekday):
+#     days_ahead = weekday - start_date.weekday()
+#     if days_ahead <= 0:
+#         days_ahead += 7
+#     return start_date + timedelta(days=days_ahead)
+
+
+# def adjust_for_weekend(birthday):
+#     if birthday.weekday() == 5:
+#         return birthday + timedelta(days=2)
+#     elif birthday.weekday() == 6:
+#         return birthday + timedelta(days=1)
+#     else:
+#         return birthday 
+#     return birthday
+
+
+from datetime import datetime, date, timedelta
+
+
+def string_to_date(date_string):
+    return datetime.strptime(date_string, "%Y.%m.%d").date()
+
+
+def date_to_string(date):
+    return date.strftime("%Y.%m.%d")
+
+
+def prepare_user_list(user_data):
+    prepared_list = []
+    for user in user_data:
+        prepared_list.append({"name": user["name"], "birthday": string_to_date(user["birthday"])})
+    return prepared_list
+
+
+def find_next_weekday(start_date, weekday):
+    days_ahead = weekday - start_date.weekday()
+    if days_ahead <= 0:
+        days_ahead += 7
+    return start_date + timedelta(days=days_ahead)
+
+
+def adjust_for_weekend(birthday):
+    if birthday.weekday() >= 5:
+        return find_next_weekday(birthday, 0)
+    return birthday
+
+
+def get_upcoming_birthdays(users, days=7):
+    upcoming_birthdays = []
+    today = date.today()
+    end_date = today + timedelta(days=days)
+    for user in users:
+        birthday_this_year = user["birthday"].replace(year=today.year)
+        if birthday_this_year < today:
+            birthday_this_year = birthday_this_year.replace(year=today.year + 1)
+        if today <= birthday_this_year <= end_date:
+            adjusted_birthday = adjust_for_weekend(birthday_this_year)
+            congratulation_date_str = date_to_string(adjusted_birthday)
+            upcoming_birthdays.append({"name": user["name"], "congratulation_date": congratulation_date_str})
+
+    return upcoming_birthdays
+
+
+users = [
+    {"name": "Bill Gates", "birthday": "1955.3.25"},
+    {"name": "Steve Jobs", "birthday": "1955.3.21"},
+    {"name": "Jinny Lee", "birthday": "1956.3.22"},
+    {"name": "Sarah Lee", "birthday": "1957.3.23"},
+    {"name": "Jonny Lee", "birthday": "1958.3.22"},
+    {"name": "John Doe", "birthday": "1985.01.23"},
+    {"name": "Jane Smith", "birthday": "1990.01.27"}
+]
+
+print(get_upcoming_birthdays(prepare_user_list(users), 7))
