@@ -474,3 +474,240 @@
 
 # print("You imported hello.py")
 # say_hello('user')
+
+# # main.py
+# from mymodule import say_hello as greeting
+
+# print(greeting("World"))
+
+# def say_hello(name):
+#     print(f'Hello, {name}')
+
+# if __name__ == '__main__':
+#     print("You imported hello.py")
+#     say_hello('user')
+
+# def say_hello(name):
+#     print(f'Hello {name}')
+
+# def main():
+#     print("You imported hello.py")
+#     say_hello('user')
+
+# if __name__ == '__main__':
+#     main()
+
+# import sys
+# import os
+
+# print(sys.modules["os"])
+
+# import sys
+# import os
+
+# print(sys.modules.keys())
+
+# import sys
+# import os
+
+# print(sys.builtin_module_names)
+
+# import sys
+
+# for arg in sys.argv:
+#     print(arg)
+
+# import sys
+
+# def main():
+#     if len(sys.argv) > 1:
+#         print(sys.argv[1])
+
+# if __name__ == "__main__":
+#     main()
+
+# def add_bonus(salary: int, bonus: int) -> int:
+#     return salary + bonus
+
+# from calculations.salary_calculations import add_bonus
+
+# salary = 1000
+# bonus = 15
+# salary_with_bonus = add_bonus(salary, bonus)
+# print(salary_with_bonus)  # 1015
+
+# def nice_function():
+#     """Do nothing, but document it.
+
+#     No, really, it doesn't do anything.
+#     """
+#     pass
+
+# def not_bad(s: str) -> str:
+#     if s.find("not") == -1 or s.find("bad") == -1:
+#         return s
+#     else:
+#         return s.replace("not bad", "good")
+
+# import utility
+
+# utility.useful.functions.nice_function()
+# utility.dummy.functions.not_bad("Test string")
+
+# from utility.useful.functions import nice_function
+# from utility.dummy.functions import not_bad
+
+# __all__ = ['nice_function', 'not_bad']
+
+# from utility import nice_function, not_bad
+
+# nice_function()
+# not_bad("Test string")
+
+# from utility import *
+
+# nice_function()
+# not_bad("Test string")
+
+# import random
+# import pathlib
+
+# current_dir = pathlib.Path(__file__).parent
+
+# def get_random_joke():
+#     try:
+#         with open(current_dir / "jokes.txt", "r", encoding="utf-8") as file:
+#             jokes = file.readlines()
+#             return random.choice(jokes).strip()
+#     except FileNotFoundError:
+#         return "Не вдалося знайти файл з анекдотами."
+
+# from joke import get_random_joke
+
+# def main():
+#     name = input("Будь ласка, введіть ваше ім'я: ")
+#     print(f"Привіт, {name}!")
+
+#     while True:
+#         user_response = input(f"{name}, бажаєте почути анекдот? (так/ні): ").lower()
+#         if user_response == "так":
+#             print(get_random_joke())
+#         elif user_response == "ні":
+#             print(f"До побачення, {name}!")
+#             break
+
+# if __name__ == "__main__":
+#     main()
+
+# import math
+# from log import log_info, log_warning, log_error
+
+# def calculate_square_root(numbers: list) -> None:
+#     for number in numbers:
+#         try:
+#             if number < 0:
+#                 # Логування попередження для від'ємних чисел
+#                 log_warning(f"Знайдено від'ємне число: {number}. Пропускаємо.")
+#                 continue
+
+#             root = math.sqrt(number)
+#             log_info(f"Квадратний корінь з {number} - {root:.2f}")
+
+#         except Exception as e:
+#             # Логування помилки у випадку інших винятків
+#             log_error(f"Помилка при обчисленні кореня для {number}: {e}")
+
+# if __name__ == "__main__":
+#     # Припустимо, у нас є список чисел
+#     numbers = [16, -4, 9, 25, 0, 4, "16"]
+#     calculate_square_root(numbers)
+
+# def is_even(number: int) -> bool:
+#     if number % 2 == 0:
+#         return True
+#     else:
+#         return False
+
+# def is_even(number: int) -> bool:
+#     return number % 2 == 0
+
+# def is_palindrome(s: str) -> bool:
+#   new_s = ""
+#   for char in s:
+#     if char.isalnum():
+# 		  new_s += char.lower()
+		
+# 	s = new_s
+#   length = len(s)
+#   for i in range(length // 2):
+#     if s[i] != s[length - i - 1]:
+#       return False
+#   return True
+
+# # Використання функції
+# print(is_palindrome("Козак з казок"))  # Виведе: True
+
+# new_s = ""
+# for char in s:
+#     if char.isalnum():
+#         new_s += char.lower()
+
+# s = new_s
+
+# for i in range(length // 2):
+#     if s[i] != s[length - i - 1]:
+#         return False
+
+# def is_palindrome(s: str) -> bool:
+#     new_s = ""
+#     for char in s:
+#         if char.isalnum():
+#             new_s += char.lower()
+
+#     s = new_s
+#     return s == s[::-1]
+
+# # Використання функції
+# print(is_palindrome("Козак з казок"))  # Виведе: True
+
+# # Розрахунок площі 
+# length1, width1 = 5, 10
+# area1 = length1 * width1
+
+# # Багато різного коду
+
+# length2, width2 = 7, 12
+# area2 = length2 * width2
+
+# # math_operations.py
+# def calculate_area(length, width):
+#     return length * width
+
+# from my_module import my_function
+
+# def main():
+#     my_function()
+
+# if __name__ == "__main__":
+#     main()
+
+# from data import load_data, clean_data
+# from processing import calculate_statistics
+
+# def main():
+#     filename = "temperatures.txt"
+#     raw_data = load_data(filename)
+#     temperatures = clean_data(raw_data)
+#     stats = calculate_statistics(temperatures)
+
+#     if stats:
+#         print(f"Minimum Temperature: {stats['min']}°C")
+#         print(f"Maximum Temperature: {stats['max']}°C")
+#         print(f"Average Temperature: {stats['average']:.2f}°C")
+#         print(f"Median Temperature: {stats['median']:.2f}°C")
+#     else:
+#         print("No temperature data available.")
+
+# if __name__ == "__main__":
+#     main()
+
