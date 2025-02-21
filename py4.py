@@ -433,3 +433,44 @@
 # from pathlib import Path
 # file_path = Path('/path/to/file.txt')
 # file_path.unlink(missing_ok=True)
+
+# import math
+
+# sin_pi = math.sin(math.pi)
+
+# from math import pi, sin
+
+# sin_pi = sin(pi)
+
+# # mymodule.py
+# def say_hello(name):
+#     return f"Hello, {name}!"
+
+# # main.py
+# import mymodule
+
+# print(mymodule.say_hello("World"))
+
+# # main.py
+# from mymodule import say_hello
+
+# print(say_hello("World"))
+
+# # main.py
+# from mymodule import say_hello as greeting
+
+# print(greeting("World"))
+
+# from module_name import item_name as alias
+
+# # main.py
+# from mymodule import say_hello as greeting
+
+# print(dir())
+# print(greeting("World"))
+
+# def say_hello(name):
+#     print(f'Hello, {name}')
+
+# print("You imported hello.py")
+# say_hello('user')
