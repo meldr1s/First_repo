@@ -1,5 +1,4 @@
 def total_salary(path):
-    def total_salary(path):
     try:
         total = 0
         count = 0
@@ -24,6 +23,6 @@ def total_salary(path):
         print(f"Файл за шляхом {path} не знайдено.")
         return (0, 0)
 
-path = 'path.txt'
-result = total_salary(path)
-print(f"Загальна сума: {result[0]}, Середня зарплата: {result[1]}")
+
+total, average = total_salary(r"C:\Users\ADMIN\Downloads\python\First_repo\path.txt")
+print(f"Загальна сума заробітної плати: {total}, Середня заробітна плата: {average}")
